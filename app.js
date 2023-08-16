@@ -9,16 +9,11 @@ app.get('/', function (req, res) {
   res.send(`Hello From ${name}`)
 })
 
-// Define request response for about page
-app.get('/about', function (req, res) {
-  res.send(`<h3>About page Keep Going</h3>`)
-})
-
-if (process.env.NODE_ENV === 'test') {
-  module.exports = app
-} else {
-  // Launch listening server on a port
-  app.listen(port, function () {
-    console.log('App is listening on port ' + port)
-  })
-}
+app.get('/will', function (req, res) {
+    res.send('{ "response": "Hello World" }');
+});
+app.get('/ready', function (req, res) {
+    res.send('{ "response": " Great!, It works!" }');
+});
+app.listen(process.env.PORT || 8000);
+module.exports = app;
